@@ -2,10 +2,10 @@ using AppRpgEtec.ViewModels.Usuarios;
 
 namespace AppRpgEtec.Views.Usuarios;
 
-public partial class LoginView : ContentPage
+public partial class CadastroView : ContentPage
 {
     UsuarioViewModel _usuarioViewModel;
-    public LoginView()
+    public CadastroView()
     {
         InitializeComponent();
 
@@ -13,8 +13,5 @@ public partial class LoginView : ContentPage
         BindingContext = _usuarioViewModel;
     }
 
-    private void InitializeComponent()
-    {
-        throw new NotImplementedException();
-    }
+    
 }

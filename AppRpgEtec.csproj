@@ -60,8 +60,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="ViewModels\NewFolder\**" />
+	  <Compile Remove="ViewModels\NewFolder\**" />
+	  <EmbeddedResource Remove="ViewModels\NewFolder\**" />
+	  <MauiCss Remove="ViewModels\NewFolder\**" />
+	  <MauiXaml Remove="ViewModels\NewFolder\**" />
+	  <None Remove="ViewModels\NewFolder\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Personagens\ListagemView.xaml.cs">
+	    <DependentUpon>ListagemView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Personagens\ListagemView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Usuarios\Cadastro.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
