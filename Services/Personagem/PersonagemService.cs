@@ -6,8 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using AppRpgEtec.Models;
 
+
 namespace AppRpgEtec.Services.Personagem
-{
+{ 
     public class PersonagemService: Request
     {
         private readonly Request _request;
@@ -21,28 +22,37 @@ namespace AppRpgEtec.Services.Personagem
             _token = token;
         }
 
-        public async Task<Personagem> GetPersonagemAsync(int personagemId)
+        public async Task<int> PostPersonagemAsync(Models.Personagem p)
         {
-            string urlComplementar = string.Format("/{0}", personagemId); var personagem = await _request.GetAsync<Models.Personagem>(apiUrlBase + urlComplementar, _token);
+            return await _request.PostReturnIntAsync(apiUrlBase, p, _token);
+        }
+
+        public async Task<ObservableCollection<Models.Personagem>> GetPersonagensAsync()
+        {
+            string urlComplementar = string.Format("{0}", "/GetAll");
+            ObservableCollection<Models.Personagem> listaPersonagens = await
+            _request.GetAsync<ObservableCollection<Models.Personagem>>(apiUrlBase + urlComplementar, _token);
+            return listaPersonagens;
+        }
+
+        public async Task<Models.Personagem> GetPersonagemAsync(int personagemId)
+        {
+            string urlComplementar = string.Format("/{0}", personagemId);
+            var personagem = await _request.GetAsync<Models.Personagem>(apiUrlBase + urlComplementar, _token);
             return personagem;
         }
 
-        public async Task<int> PutPersonagemAsync(Personagem p)
-        {
-            var result = await _request.PutAsync(apiUrlBase, p, _token); return result;
-        }
-        public async Task<int> DeletePersonagemAsync(int personagemId)
-        {
-            string urlComplementar = string.Format("/{0}", personagemId); var result = await _request.DeleteAsync(apiUrlBase + urlComplementar, _token); return result;
-        }
 
-        public async Task<int> PutPersonagemAsync(Personagem p)
+        public async Task<int> PutPersonagemAsync(Models.Personagem p)
         {
-            var result = await _request.PutAsync(apiUrlBase, p, _token); return result;
+            var result = await _request.PutAsync(apiUrlBase, p, _token);
+            return result;
         }
         public async Task<int> DeletePersonagemAsync(int personagemId)
         {
-            string urlComplementar = string.Format("/{0}", personagemId); var result = await _request.DeleteAsync(apiUrlBase + urlComplementar, _token); return result;
+            string urlComplementar = string.Format("/{0}", personagemId);
+            var result = await _request.DeleteAsync(apiUrlBase + urlComplementar, _token);
+            return result;
         }
 
 

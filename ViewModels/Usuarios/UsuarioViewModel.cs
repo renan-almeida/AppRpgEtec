@@ -7,13 +7,15 @@ using System.Windows.Input;
 using AppRpgEtec.Models;
 using AppRpgEtec.Services.Usuarios;
 
+
 namespace AppRpgEtec.ViewModels.Usuarios
 {
     public class UsuarioViewModel : BaseViewModel
     {
         private UsuarioService uService;
-
+        public ICommand RegistrarCommand { get; set; }
         public ICommand AutenticarCommand { get; set; }
+        public ICommand DirecionarCadastroCommand { get; set; }
 
         public UsuarioViewModel()
         {
@@ -24,7 +26,9 @@ namespace AppRpgEtec.ViewModels.Usuarios
 
         public void InicializarCommands()
         {
+            RegistrarCommand = new Command(async () => await RegistrarUsuario());
             AutenticarCommand = new Command(async () => await AutenticarUsuario());
+            DirecionarCadastroCommand = new Command(async () => await DirecionarParaCadastro());
         }
 
 
@@ -76,7 +80,7 @@ namespace AppRpgEtec.ViewModels.Usuarios
                     await Application.Current.MainPage
                             .DisplayAlert("Informação", mensagem, "Ok");
 
-                    Application.Current.MainPage = new MainPage();
+                    Application.Current.MainPage = new AppShell();
                 }
                 else
                 {

@@ -13,8 +13,4 @@ public partial class LoginView : ContentPage
         BindingContext = _usuarioViewModel;
     }
 
-    private void InitializeComponent()
-    {
-        throw new NotImplementedException();
-    }
 }
