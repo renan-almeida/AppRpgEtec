@@ -1,4 +1,6 @@
-﻿using AppRpgEtec.ViewModels.Personagens;
+﻿using AppRpgEtec.ViewModels.Armas;
+using AppRpgEtec.ViewModels.Personagens;
+using AppRpgEtec.Views.Armas;
 
 namespace AppRpgEtec
 {

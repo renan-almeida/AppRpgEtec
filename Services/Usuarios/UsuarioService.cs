@@ -11,7 +11,7 @@ namespace AppRpgEtec.Services.Usuarios
     {
  
     private readonly Request _request;
-    private const string apiUrlBase = "xyz.com/RpgApi/Usuarios";
+    private const string apiUrlBase = "http://luizsouza.somee.com/RpgApi/Usuarios";
 
     public UsuarioService()
     {

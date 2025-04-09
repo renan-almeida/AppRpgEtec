@@ -20,6 +20,8 @@ namespace AppRpgEtec.ViewModels.Personagens
         public ICommand SalvarCommand { get; }
         public ICommand CancelarCommand { get; }
 
+  
+
         public CadastroPersonagemViewModel()
         {
             string token = Preferences.Get("UsuarioToken", string.Empty);
@@ -142,7 +144,7 @@ namespace AppRpgEtec.ViewModels.Personagens
             }
 
         }
-
+        
 
         public async Task ObterClasses()
         {

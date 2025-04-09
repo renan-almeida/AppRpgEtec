@@ -50,7 +50,7 @@ namespace AppRpgEtec.ViewModels.NewFolder
         {
             try
             {
-                await Shell.Current.GoToAsync("cadPersonagemVIew");
+                await Shell.Current.GoToAsync("cadPersonagemView");
             }
             catch ( Exception ex)
             {
